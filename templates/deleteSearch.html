@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Movie
+{% endblock %}
+
+{% block main %}
+    <form action="/deleteSearch" method="post">
+        <div class="container">
+            <div class="row div-size">
+                <div class="col text-right">
+                    <select class="form-control" id="select-input" name="select">
+                        <option disabled selected value="">Select</option>
+                        <option value="title">Moive Title</option>
+                        <option value="directors">Directors</option>
+                        <option value="year">Release Year</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input autocomplete="off" class="form-control" id="search" name="search" placeholder="Search" type="text">
+                </div>
+                <div class="col text-left">
+                    <button class="btn btn-secondary" name="action" value="search" type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-secondary" type="submit" name="action" value="list-movies">List All Movies</button>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

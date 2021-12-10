@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Movies
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Date Watched</th>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Co-Director</th>
+                <th>Year of Release</th>
+                <th>Personal Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies|sort(attribute='date', reverse=True) %}
+                <tr>
+                    <td>{{ movie.date }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.director }}</td>
+                    <td>{{ movie.codirector }}</td>
+                    <td>{{ movie.year }}</td>
+                    {% if movie.rating %}
+                        <td>{{ movie.rating }} / 5</td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">Total number of movies watched: &nbsp;{{ total_movies }}</td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

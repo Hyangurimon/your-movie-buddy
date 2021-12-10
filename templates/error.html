@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <h3 class="error-font">Error:</h3>
+    <img class="error-img" src="static/error.png" alt="Error image">
+    <p class="error-msg">{{ message }}</p>
+{% endblock %}

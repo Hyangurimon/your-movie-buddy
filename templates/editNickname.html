@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Nickname
+{% endblock %}
+
+{% block main %}
+    <form action="/editNickname" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="nickname" placeholder="New Nickname" type="text">
+        </div>
+        <button class="btn btn-secondary" type="submit">Edit Nickname</button>
+    </form>
+{% endblock %}

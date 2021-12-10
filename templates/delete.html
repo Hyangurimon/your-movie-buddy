@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Result
+{% endblock %}
+
+{% block main %}
+    {% if empty_result %}
+        <div>
+            <p>No match found</p>
+        </div>
+        <a href="/deleteSearch"><button class="btn btn-secondary" type="button">Back to Search</button></a>
+
+    {% else %}
+        <form action="/delete" method="post">
+            <div class="form-group">
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th></th>
+                            <th>Date Watched</th>
+                            <th>Title</th>
+                            <th>Director</th>
+                            <th>Co-Director</th>
+                            <th>Year of Release</th>
+                            <th>Personal Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results|sort(attribute='date', reverse=True) %}
+                            <tr>
+                                <td id="td-checkbox"><input id="checkbox" name="movie_id" type="checkbox" value="{{result.movie_id}}"></td>
+                                <td>{{ result.date }}</td>
+                                <td>{{ result.title }}</td>
+                                <td>{{ result.director }}</td>
+                                <td>{{ result.codirector }}</td>
+                                <td>{{ result.year }}</td>
+                                {% if result.rating %}
+                                    <td>{{ result.rating }} / 5</td>
+                                {% else %}
+                                    <td></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-secondary" type="submit">Delete Movie(s)</button>
+        </form>
+    {% endif %}
+
+{% endblock %}

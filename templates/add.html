@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Movie
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control add-input" name="date" placeholder="Date Watched" type="date">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control add-input" name="title" placeholder="Movie Title" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control add-input" name="director" placeholder="Director" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control add-input" name="codirector" placeholder="Co-Director (If Any)" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control add-input" name="year" placeholder="Year of Release" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control add-input" min="0" max="5" name="rating" placeholder="Personal Rating (1-5)" type="number">
+        </div>
+        <button class="btn btn-secondary" type="submit">Add Movie</button>
+    </form>
+{% endblock %}
